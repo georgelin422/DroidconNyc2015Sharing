@@ -1,0 +1,5 @@
+*Introductional to Functional Reactive Programming
+Reactive Extensions - a lib to use FRP in many programming languages
+Reasons for having FRP - abstract away concerns about: 1.low-level threading 2.synchronization 3.thread-safty 4.concurrent data structure
+
+- No Magic! https://blog.8thlight.com/uncle-bob/2015/08/06/let-the-magic-die.html "If some lib is magic for you and you just use that without knowing how it works, you are doomed! You will not be able to solve erros when meeting issues in the lib." http://reactivex.id/leanrx/

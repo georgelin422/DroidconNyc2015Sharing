@@ -57,7 +57,7 @@
 						<img width="300" height="400" data-src="https://lh3.googleusercontent.com/DDmOjIUn9TV10WzwnPtFj5MRsd6Cf9LZJNv613RjtBQrX8C7gZiannWwwFcGwoRu_P46cHF-6jjF1ayAZe48YF0GVba2nWHJ8LxM60CO0R0SnsaCTRFPD7_70DbaescbRwJDRy5Jn8yEawFagdr1v_LpqJazjq0H7DTP2PzO-rzxqYXAqPpHGC2e2vvpXV6z0rrjM860RhtnQMR8nwQfbJllr7co702EcPNP0xKakDwZNm3pczDSRMEqlb13vRNQxC0txrPfq150Qp_18lTur8bQn6zjwj1vkjg__XIRiLta8PvcxVjYuf3YY3PwFziebl0RSdfn39yz3J-yjbRFE35GefS5if_nkcYp2EzkL_XsG3gW7T-UebxpdhygbYGINYZbEuP6ehni5quJwtbYBSP6prKX3bzjIk6KxZD6qB63l0j2IWcp5jk-MP2AFONBovQse5aSZmwcjOQgK3sRVoyKrUD__mjn3b9IW_UloVPqBg7epchGtZ0PPVr6dyWMfuXL3W6uUZjJW1jwddqw36g=w521-h702-no"/>
 					</section>
 					<section>
-						<h2>Checking Out Surroundings</h2>
+						<h2>Check Out Surroundings</h2>
 						<p>A coffee bar sponsored by Google.</p>
 						<img width="300" height="400" data-src="https://lh3.googleusercontent.com/57kOvudCKYuGRMK2Rhzq5rf0DJfNlPHHIv-JMxrmjo6iHKYaNWCd7GpY-p10sTvqz_j5GylnEI6BsJ1h0h4PFqMkiPlel6sMIce2aIeAKfFTDmXRo7bVbiAVJe5RYKhZKqREDCy_rGbIBNl_lEX2-wkoCBHXRvuWzXNK5mjGgbLXR8C3occsXxnuJzGLvXoGGLnQOYSIxoOy7koNAdkhIO-60fJumuBVXTAiwjXZZlF5UXK7iBg2M9LbgKhH_lNPWjcm8PzcEoLM17byq8O82XU_ZrfhCd4gpJz7rF5FchY6iJagkwOqL2BH3n_97uWOJZDZUlWBxRYna8bsev0Z2MBdec18cX-bdtWap0iT4rUBvQBwF0gSN5tYODs1ezeDdnMbfhdUGYY9sRSySW3kb4T32AhEfTFrVcx2yGDwFsgVvGlZYdgySbrkVA8cL0nzCr8Hq4hRteEILvsVHIq0FZe81dNOIS4MNNJGHFEgFakPPDCOG_YqRm3FYHAxWs-MzFYdsVlNNIDpw4Clva2FD5Y=w521-h702-no"/>
 					</section>
@@ -94,8 +94,96 @@
 				</section>
 
 				<section>
-					<h2>MORE needs to be done</h2>
-					<p>hej VN, this is the end. I need to come up with some technical stuff. Thanks for watching.</p>
+					<section>
+						<h2>Introduction to Functional Reactive Programming</h2>
+						<p>"<em>Reactive Extensions</em>" - a lib to use FRP in many Programming Languages.</p>
+					</section>
+					<section>
+						<h3>Reasons for having FRP</h3>
+						<P>Abstract away concerns about:</P>
+						<ul>
+							<li>low-level threading</li>
+							<li>synchronization</li>
+							<li>thread-safty</li>
+							<li>concurrent data structure</li>
+						</ul>
+					</section>
+					<section>
+						<h3>No Magic!</h3>
+						<a href="https://blog.8thlight.com/uncle-bob/2015/08/06/let-the-magic-die.html" target="_blank">https://blog.8thlight.com/uncle-bob/2015/08/06/let-the-magic-die.html</a>
+						<p><em>"Never buy magic! Before you commit to a framework, make sure you could write it."</em></p>
+						<a href="http://reactivex.io/learnrx/" target="_blank">http://reactivex.io/learnrx/</a>
+					</section>
+					<section>
+						<h3>Retrolambda</h3>
+						<p>Let use lambda expressions (a Java 8 feature) on Java 7</p>
+<pre><code>aObservable.filter(new Func1&lt;Integer, Boolean&gt;() {
+	public Boolean call(Integer n) {
+		return n%2 == 0;
+	}
+})
+.map(new Fun1&lt;Integer, Integer&gt;{
+	public Integer call(Integer n) {
+		return n * n;
+	}
+})
+.subscribe(new Action1&lt;Integer&gt;(){
+	public void call(Integer n) {
+		System.out.println(n);
+	}
+});
+</code></pre>
+					</section>
+					<section>
+						<h3>Retrolambda</h3>
+						<p>Let use lambda expressions (a Java 8 feature) on Java 7</p>
+<pre><code>aObservable.filter(n -> n % 2 == 0)
+.map(n -> n * n)
+.subscribe(System.out::println);
+</code></pre>
+					<p>Retrolambda</p>
+					<a href="https://github.com/orfjackal/retrolambda" target="_blank">https://github.com/orfjackal/retrolambda</a>
+					<p>Gradle Plugin</p>
+					<a href="https://github.com/evant/gradle-retrolambda" target="_blank">https://github.com/evant/gradle-retrolambda</a>
+					</section>
+					<section>
+						<h3>RxMarbles</h3>
+						<a href="http://rxmarbles.com" target="_blank">http://rxmarbles.com</a>
+						<iframe src="http://rxmarbles.com/#zip" width="960" height="540"></iframe>
+					</section>
+					<section>
+						<h3>Create an Observable</h3>
+						<ul>
+							<li>from()</li>
+							<li>just()</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Operaters</h3>
+						<ul>
+							<li>map()</li>
+							<li>faltMap()</li>
+							<li>filter()</li>
+							<li>reduce()</li>
+							<li>zip()</li>
+						</ul>
+					</section>
+					<section>
+						<h3>More Concepts</h3>
+						<ul>
+							<li>Schedulers</li>
+							<ul>
+								<li>observeOn() / subscribeOn()</li>
+							</ul>
+							<li>Backpressure</li>
+							<li>Hot and Cold Observables</li>
+							<ul>
+								<li>Mouse Key Event / A List</li>
+							</ul>
+						</ul>
+						<p>More info on</p>
+						<a href="https://github.com/ReactiveX/RxJava/wiki" target="_blank">https://github.com/ReactiveX/RxJava/wiki</a>
+					</section>
 				</section>
 			</div>
 
